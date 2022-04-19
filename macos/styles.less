@@ -10,6 +10,12 @@
 @code-background: rgba(36, 36, 36, 1.00);
 @code-border: rgba(87, 87, 87, 1.00);
 @code-color: rgba(169, 183, 198, 1.0);
+@note-list-font: AvenirNext-Medium;
+@note-list-font-size: 14px;
+@note-font: "Helvetica Neue";
+@note-font-size: 14px;
+
+// AvenirNext-Medium AvenirNext-Regular
 
 
 .note-list-header {
@@ -28,24 +34,17 @@
   }
 }
 
-.editor-layout .editor-header-layout, .editor-header-title-input.ui.input .editor-header-top-spacer, .editor-header-title-input.ui.input input[type='text'], .editor-meta-layout {
-  background-color: @base-background-color;
-}
-
-.mde-toolbar {
-  background-color: @base-background-color;
-  opacity: 1;
-}
-
 .note-tags-bar-input .ui.input > input {
   background-color: @base-background-color;
   color: @label-color
 }
 
+// top left
 .app-control-view {
   background-color: @dark-background-color
 }
 
+//notebooks sidebar
 .sidebar-menu {
   background-color: @dark-background-color
 }
@@ -64,20 +63,11 @@
   border-radius: 6px;
 }
 
-body {
-}
-
 .note-list-bar {
   background-color: @base-background-color;
   color: rgb(169, 183, 198);
-  font-family: AvenirNext-Medium;
-  font-size: 14px;
-}
-
-.note-list-item-view .content .header {
-  // margin: 12px 12px 12px 0;
-  font-weight: 400;
-  font-size: 1.10em;
+  font-family: @note-list-font;
+  font-size: @note-list-font-size;
 }
 
 /* Border = Accent Text Color */
@@ -95,6 +85,27 @@ body {
     background-color: @base-background-color;
     color: rgb(169, 183, 198);
     border-bottom: 1px solid #000000;
+    padding: 2px 0px 10px 20px;
+
+    .content {
+      .header {
+        // margin: 12px 12px 12px 0;
+        font-weight: 400;
+        font-size: 1.10em;
+        color: @title-text-color-app;
+      }
+
+      .description {
+        // description text, non-focused notes
+        .text {
+          color: @label-color;
+        }
+
+        .date {
+          display: none; //hide modified date
+        }
+      }
+    }
   }
 
   .note-list-item-view.active {
@@ -106,72 +117,45 @@ body {
   }
 }
 
-
-/* Looks very similar to rgba(169, 183, 198, 1.0) (base text color) */
-.note-list-item-view.active .content .header, .note-list-item-view.focused .content .header {
-  color: @title-text-color-app;
-}
-
-.note-list-item-view .content .header {
-  color: @title-text-color-app;
-}
-
-/* description text, non-focused notes */
-/* Light Text Color */
-.note-list-item-view .content .description .text {
-  color: @label-color
-}
-
-/* Light Text Color */
-.node-list-item-view.active .content .description .text, .note-list-item-view.focused .content .description .text {
-  color: @label-color
-}
-
-.note-list-item-view .content .description .date {
-  display: none;
-}
-
-.note-list-item-view {
-  // padding: 2px 0px 10px 14px;
-  padding: 2px 0px 10px 20px;
-}
-
-.editor {
+.editor-blank-slate {
   background-color: @base-background-color;
-  font-family: AvenirNext-Regular;
-  // font-family: "Helvetica Neue";
-  // background-color: rgb(28, 29, 31);
+  opacity: 1;
+}
 
-  .CodeMirror {
+.editor-layout {
+  border-left: 1px solid #000000;
+
+  // note info (three vertical dots)
+  .editor-header-layout {
     background-color: @base-background-color;
-    font-family: AvenirNext-Regular;
-    // font-family: "Helvetica Neue";
-    // background-color: rgb(28, 29, 31);
-
-    .cm-inline-code {
-      background-color: @code-background;
-      border: 1px solid @code-border;
-      padding-left: 4px;
-      padding-right: 4px;
-    }
-
-
-    .cm-formatting {
-      border: 0px;
-      padding: 0px;
-    }
   }
 }
 
+// note title, note category
+.editor-header-title-input.ui.input .editor-header-top-spacer, .editor-header-title-input.ui.input input[type='text'], .editor-meta-layout {
+  background-color: @base-background-color;
+}
+
+//toolbar for adding bold, italics, etc
+.mde-toolbar {
+  background-color: @base-background-color;
+  opacity: 1;
+}
+
+// markdown preview/regular view
 .mde-preview {
-  border-left: 1px
+  font-size: @note-font-size;
+  border-left: 1px;
+  background-color: @base-background-color;
+  font-family: @note-font;
 }
 
 .mde-cm-wrapper {
+  // note area
   .CodeMirror {
-    // font-family: AvenirNext-Regular; // note areas
-    font-family: "Helvetica Neue";
-    font-size: 14px;
+    background-color: @base-background-color;
+    font-family: @note-font;
+    font-size: @note-font-size;
     padding-left: 16px;
     padding-right: 16px;
 
@@ -207,15 +191,6 @@ body {
   opacity: 1;
 }
 
-.editor-blank-slate {
-  background-color: @base-background-color;
-  opacity: 1;
-}
-
-.editor-layout {
-  border-left: 1px solid #000000;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -239,6 +214,18 @@ body {
 
 .editor {
   .CodeMirror {
+    .cm-inline-code {
+      background-color: @code-background;
+      border: 1px solid @code-border;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+    .cm-formatting {
+      border: 0px;
+      padding: 0px;
+    }
+
     .cm-bracket {
       color: rgba(74, 168, 251, 1.0);
     }
