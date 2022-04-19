@@ -10,6 +10,8 @@
 @code-background: rgba(36, 36, 36, 1.00);
 @code-border: rgba(87, 87, 87, 1.00);
 @code-color: rgba(169, 183, 198, 1.0);
+@code-property: rgba(218, 136, 179, 1.0);
+@code-string: rgba(222, 115, 46, 1.0);
 @note-list-font: AvenirNext-Medium;
 @note-list-font-size: 14px;
 @note-font: "Helvetica Neue";
@@ -66,7 +68,8 @@
 .note-list-bar {
   background-color: @base-background-color;
   color: rgb(169, 183, 198);
-  font-family: @note-list-font;
+  // font-family: @note-list-font;
+  font-family: @note-font;
   font-size: @note-list-font-size;
 }
 
@@ -109,7 +112,7 @@
   }
 
   .note-list-item-view.active {
-    box-shadow: none;
+    box-shadow: none !important;
   }
 
   .note-list-item-view.active.focused {
@@ -194,7 +197,6 @@
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   // background: @base-background-color;
 }
@@ -259,6 +261,14 @@
 
     .cm-def {
       color: @code-define;
+    }
+
+    .cm-property, .cm-def {
+      color: @code-property !important;
+    }
+
+    .cm-string, .cm-quote {
+      color: @code-string;
     }
 
     .cm-variable {
