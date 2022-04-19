@@ -107,13 +107,11 @@ body {
 }
 
 
-/* Title Text Color in Bear */
 /* Looks very similar to rgba(169, 183, 198, 1.0) (base text color) */
 .note-list-item-view.active .content .header, .note-list-item-view.focused .content .header {
   color: @title-text-color-app;
 }
 
-/* Title Text Color in Bear */
 .note-list-item-view .content .header {
   color: @title-text-color-app;
 }
@@ -138,58 +136,70 @@ body {
   padding: 2px 0px 10px 20px;
 }
 
-.editor .CodeMirror {
-  background-color: @base-background-color;
-  font-family: AvenirNext-Regular;
-  // font-family: "Helvetica Neue";
-  // background-color: rgb(28, 29, 31);
-}
-
 .editor {
   background-color: @base-background-color;
   font-family: AvenirNext-Regular;
   // font-family: "Helvetica Neue";
   // background-color: rgb(28, 29, 31);
+
+  .CodeMirror {
+    background-color: @base-background-color;
+    font-family: AvenirNext-Regular;
+    // font-family: "Helvetica Neue";
+    // background-color: rgb(28, 29, 31);
+
+    .cm-inline-code {
+      background-color: @code-background;
+      border: 1px solid @code-border;
+      padding-left: 4px;
+      padding-right: 4px;
+    }
+
+
+    .cm-formatting {
+      border: 0px;
+      padding: 0px;
+    }
+  }
 }
 
 .mde-preview {
   border-left: 1px
 }
 
-.mde-cm-wrapper .CodeMirror .CodeMirror-code .cm-header-1 {
-  font-size: 1.5em;
-  font-weight: normal;
-  color: @title-text-color-text;
-}
+.mde-cm-wrapper {
+  .CodeMirror {
+    // font-family: AvenirNext-Regular; // note areas
+    font-family: "Helvetica Neue";
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
 
-.mde-cm-wrapper .CodeMirror .CodeMirror-code .cm-header-2 {
-  font-size: 1.3em;
-  font-weight: normal;
-  color: @title-text-color-text;
-}
+    .CodeMirror-code {
+      .cm-header-1 {
+        font-size: 1.5em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
 
-.mde-cm-wrapper .CodeMirror .CodeMirror-code .cm-header-3 {
-  font-size: 1.1em;
-  font-weight: normal;
-  color: @title-text-color-text;
-}
+      .cm-header-2 {
+        font-size: 1.3em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
 
-.mde-cm-wrapper .CodeMirror .CodeMirror-code .cm-header-4 {
-  font-size: 1.05em;
-  font-weight: normal;
-  color: @title-text-color-text;
-}
-
-.mde-cm-wrapper .CodeMirror {
-  // font-family: AvenirNext-Regular; // note areas
-  font-family: "Helvetica Neue";
-  font-size: 14px;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-.editor .CodeMirror .cm-formatting-list.cm-variable-2, .editor .CodeMirror .cm-bracket {
-  color: rgba(74, 168, 251, 1.0);
+      .cm-header-3 {
+        font-size: 1.1em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+      .cm-header-4 {
+        font-size: 1.05em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+    }
+  }
 }
 
 .note-list-bar-blank-slate {
@@ -206,23 +216,19 @@ body {
   border-left: 1px solid #000000;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   // background: @base-background-color;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: @label-color;
   border-radius: 4px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: @label-color
 }
@@ -230,8 +236,17 @@ body {
 .sidebar-menu-section-status, .sidebar-menu-status-list-item {
   display: none;
 }
+
 .editor {
   .CodeMirror {
+    .cm-bracket {
+      color: rgba(74, 168, 251, 1.0);
+    }
+
+    .cm-formatting-list.cm-variable-2 {
+      color: rgba(74, 168, 251, 1.0);
+    }
+
     .gfm-codeblock-bg.CodeMirror-linebackground {
       background: @code-background;
       // border-radius: 2px;
@@ -268,15 +283,3 @@ body {
     }
   }
 }
-
-
-
-// .sidebar-menu-item .disclosure > .disclosure-label {
-//   display: none;
-// }
-// .sidebar-menu-item .disclosure > i.disclosure-icon.icon {
-//   display: none;
-// }
-
-
-/* 100, 104, 104 */
