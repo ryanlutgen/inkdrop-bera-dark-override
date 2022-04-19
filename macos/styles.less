@@ -22,6 +22,10 @@
 
 .note-list-search-bar {
   background-color: @base-background-color;
+
+  .ui.input>input {
+    background-color: @dark-background-color
+  }
 }
 
 .editor-layout .editor-header-layout, .editor-header-title-input.ui.input .editor-header-top-spacer, .editor-header-title-input.ui.input input[type='text'], .editor-meta-layout {
@@ -78,6 +82,8 @@ body {
 
 /* Border = Accent Text Color */
 .note-list-bar-item {
+  border-right: 1px solid #000000;
+
   .note-list-item-view.active {
     background-color: @selected-note-color;
     border-left: 5px solid rgba(74, 168, 251, 1.00);
@@ -207,7 +213,7 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: @base-background-color;
+  // background: @base-background-color;
 }
 
 /* Handle */
