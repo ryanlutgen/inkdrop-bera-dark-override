@@ -1,5 +1,6 @@
 @base-background-color: rgba(30, 32, 34, 1.0);
 @dark-background-color: rgba(44, 45, 47, 1.00);
+@selected-text-background-color: rgba(55, 63, 73, 1.00);
 @selected-note-color: rgba(25, 25, 28, 1.0);
 @title-text-color-app: rgba(173, 192, 200, 1.00);
 @title-text-color-text: rgba(203, 219, 229, 1.00);
@@ -215,6 +216,22 @@
 }
 
 .editor {
+  .CodeMirror div.CodeMirror-selected {
+    background: @selected-text-background-color;
+  }
+
+  .CodeMirror .CodeMirror-line::selection,
+  .CodeMirror-line>span::selection,
+  .CodeMirror-line>span>span::selection {
+    background: @selected-text-background-color;
+  }
+
+  .CodeMirror .CodeMirror-line::-moz-selection,
+  .cm-s-ligh .CodeMirror-line>span::-moz-selection,
+  .cm-s-ligh .CodeMirror-line>span>span::-moz-selection {
+    background: @selected-text-background-color;
+  }
+
   .CodeMirror {
     .cm-inline-code {
       background-color: @code-background;
