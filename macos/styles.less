@@ -1,5 +1,7 @@
 @base-background-color: rgba(30, 32, 34, 1.0);
 @dark-background-color: rgba(44, 45, 47, 1.00);
+@base-text-color: rgba(221, 221, 221, 1.0);
+@markdown-formatting-text: rgba(91, 91, 91, 1.0);
 @selected-text-background-color: rgba(55, 63, 73, 1.00);
 @selected-note-color: rgba(25, 25, 28, 1.0);
 @title-text-color-app: rgba(173, 192, 200, 1.00);
@@ -233,6 +235,45 @@
   }
 
   .CodeMirror {
+    background-color: @base-background-color;
+    color: @base-text-color;
+
+    .CodeMirror-code {
+      .cm-header-1 {
+        font-size: 1.5em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+
+      .cm-header-2 {
+        font-size: 1.3em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+
+      .cm-header-3 {
+        font-size: 1.1em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+      .cm-header-4 {
+        font-size: 1.05em;
+        font-weight: normal;
+        color: @title-text-color-text;
+      }
+
+      .cm-formatting {
+        border: 0px;
+        padding: 0px;
+        color: @markdown-formatting-text;
+      }
+
+      .cm-math {
+        color: @base-text-color;
+      }
+    }
+
+
     .cm-inline-code {
       background-color: @code-background;
       border: 1px solid @code-border;
@@ -249,8 +290,8 @@
       color: rgba(74, 168, 251, 1.0);
     }
 
-    .cm-formatting-list.cm-variable-2 {
-      color: rgba(74, 168, 251, 1.0);
+    .cm-formatting-list {
+      color: rgba(74, 168, 251, 1.0) !important;
     }
 
     .gfm-codeblock-bg.CodeMirror-linebackground {
