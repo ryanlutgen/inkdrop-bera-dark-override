@@ -8,6 +8,8 @@
 @title-text-color-text: rgba(203, 219, 229, 1.00);
 @label-color: rgba(111, 115, 115, 1.0);
 @code-keyword: rgba(174, 237, 218, 1.0);
+@light-blue: rgba(74, 168, 251, 1.0);
+@code-link: rgba(107, 202, 251, 1.0);
 @code-define: rgba(209, 160, 105, 1.0);
 @code-variable: rgba(255, 205, 120, 1.0);
 @code-background: rgba(36, 36, 36, 1.00);
@@ -59,7 +61,19 @@
 }
 
 .sidebar-menu-item {
-  color: rgba(163, 164, 164, 1.0)
+  color: rgba(163, 164, 164, 1.0);
+
+  .disclosure {
+    display: none;
+    border: 0;
+  }
+
+  .disclosure > .disclosure-label {
+    display: none;
+  }
+  .disclosure > i.disclosure-icon.icon {
+    display: none;
+  }
 }
 
 .sidebar-menu-item.selectable {
@@ -70,6 +84,10 @@
   background-color: rgba(39, 106, 179, 1.00);
   color: rgba(217, 216, 218, 1.00);
   border-radius: 6px;
+}
+
+.sidebar-menu-book-list-item.sidebar-menu-item.with-disclosure:hover .accessory-count {
+  display: inline;
 }
 
 .note-list-bar {
@@ -91,7 +109,7 @@
 
   .note-list-item-view.active {
     background-color: @selected-note-color;
-    border-left: 5px solid rgba(74, 168, 251, 1.00);
+    border-left: 5px solid @light-blue;
     color: rgb(169, 183, 198);
     // font-size: 16px;
   }
@@ -275,6 +293,7 @@
         border: 0px;
         padding: 0px;
         color: @markdown-formatting-text;
+        // color: @title-text-color-text;
       }
 
       .cm-math {
@@ -295,12 +314,28 @@
       padding: 0px;
     }
 
+    .cm-formatting-header {
+      opacity: 1;
+    }
+
+    .cm-strong {
+      color: @base-text-color;
+    }
+
+    .cm-link {
+      color: @base-text-color;
+    }
+
+    .cm-url {
+      color: @code-link !important;
+    }
+
     .cm-bracket {
-      color: rgba(74, 168, 251, 1.0);
+      color: @light-blue;
     }
 
     .cm-formatting-list {
-      color: rgba(74, 168, 251, 1.0) !important;
+      color: @light-blue !important;
     }
 
     .gfm-codeblock-bg.CodeMirror-linebackground {
