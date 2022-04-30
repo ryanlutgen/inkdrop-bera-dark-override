@@ -19,7 +19,7 @@
 @code-string: rgba(222, 115, 46, 1.0);
 @note-list-font: AvenirNext-Medium;
 @note-list-font-size: 14px;
-@note-font: "Helvetica Neue";
+@note-font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 @note-font-size: 14px;
 
 // AvenirNext-Medium AvenirNext-Regular
@@ -74,6 +74,10 @@
   .disclosure > i.disclosure-icon.icon {
     display: none;
   }
+
+  .accessory-count {
+    opacity: 1;
+  }
 }
 
 .sidebar-menu-item.selectable {
@@ -94,12 +98,11 @@
   background-color: @base-background-color;
   color: rgb(169, 183, 198);
   // font-family: @note-list-font;
-  font-family: @note-font;
   font-size: @note-list-font-size;
 }
 
 .sidebar-sync-status-view {
-  display: none;
+  // display: none;
   // border-top: 1px solid #000000;
 }
 
@@ -130,12 +133,19 @@
 
       .description {
         // description text, non-focused notes
+
         .text {
           color: @label-color;
+          white-space: normal;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          line-height: 1.3em;
         }
 
         .date {
-          display: none; //hide modified date
+         // display: none; //hide modified date
+          float:right;
         }
       }
     }
