@@ -7,6 +7,7 @@
 @title-text-color-app: rgba(173, 192, 200, 1.00);
 @title-text-color-text: rgba(203, 219, 229, 1.00);
 @label-color: rgba(111, 115, 115, 1.0);
+@code-inline-color: rgba(255, 254, 255, 1.00);
 @code-keyword: rgba(174, 237, 218, 1.0);
 @light-blue: rgba(74, 168, 251, 1.0);
 @code-link: rgba(107, 202, 251, 1.0);
@@ -204,6 +205,80 @@
   border-left: 1px;
   background-color: @base-background-color;
   font-family: @note-font;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: inherit !important;
+
+  a {
+    color: @code-link !important;
+  }
+
+  code {
+    background-color: @code-background;
+    border: 1px solid @code-border;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: @code-inline-color;
+    font-size: @code-font-size;
+    font-family: @code-font;
+  }
+
+  pre {
+    background: @code-background !important;
+    border: 1px solid @code-border;
+    padding: 8px !important;
+    border-radius: 0px !important;
+
+    code {
+      background: @code-background;
+      // border-radius: 2px;
+      font-family: @code-font;
+      font-size: @code-font-size;
+      word-spacing: 2px;
+      // padding-left: 10px;
+      // padding-right: 10px;
+    }
+  }
+
+  .cm-keyword {
+    color: @code-keyword !important;
+  }
+
+  .cm-type {
+    color: @code-keyword !important;
+  }
+
+  .cm-def {
+    color: @code-define !important;
+  }
+
+  .cm-property, .cm-def {
+    color: @code-keyword !important;
+  }
+
+  .cm-string, .cm-quote {
+    color: @code-string !important;
+  }
+
+  .cm-variable {
+    color: inherit !important;
+  }
+
+  .cm-atom {
+    color: inherit !important;
+  }
+
+  .cm-number {
+    color: @code-number !important;
+  }
+
+  .cm-comment {
+    color: @code-comment !important;
+  }
+
+  .cm-operator {
+    color: @code-operator !important;
+  }
 }
 
 .mde-cm-wrapper {
@@ -312,6 +387,16 @@
         color: @title-text-color-text;
       }
 
+      // CodeMirror within inkdrop likes to assign an unordered list at a certain depth with the keyword class
+      // Override the color so that such ocurrances don't cause the note to look funky
+      .list-line {
+        span[role=presentation] {
+          .cm-keyword {
+            color: inherit;
+          }
+        }
+      }
+
       .cm-formatting {
         border: 0px;
         padding: 0px;
@@ -328,8 +413,13 @@
     .cm-inline-code {
       background-color: @code-background;
       border: 1px solid @code-border;
-      padding-left: 4px;
-      padding-right: 4px;
+      padding-left: 8px;
+      padding-right: 8px;
+      color: @code-inline-color;
+      font-size: @code-font-size;
+      font-family: @code-font;
+      padding-top: 2px;
+      padding-bottom: 2px;
     }
 
     .cm-formatting {
