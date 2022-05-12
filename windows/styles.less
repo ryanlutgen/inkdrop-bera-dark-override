@@ -23,13 +23,13 @@
 @code-comment: rgba(127, 140, 151, 1.0);
 @code-number: rgba(170, 201, 127, 1.0);
 @code-operator: rgba(23, 168, 219, 1.00);
-@code-font: Menlo-Regular;
-@code-font-size: 12px;
+@code-font: "Segoe UI";
+@code-font-size: 14px;
 
 
 @note-list-font: AvenirNext-Medium;
 @note-list-font-size: 14px;
-@note-font: "Helvetica Neue";
+@note-font: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 @note-font-size: 14px;
 
 // AvenirNext-Medium AvenirNext-Regular
@@ -62,7 +62,6 @@
   border-radius: 4px;
 }
 
-
 // top left
 .app-control-view {
   background-color: @dark-background-color
@@ -79,7 +78,6 @@
 
 .sidebar-menu-item {
   color: rgba(163, 164, 164, 1.0);
-  font-family: AvenirNext-Regular;
 
   .disclosure {
     display: none;
@@ -116,7 +114,6 @@
   background-color: @base-background-color;
   color: rgb(169, 183, 198);
   // font-family: @note-list-font;
-  font-family: @note-font;
   font-size: @note-list-font-size;
 }
 
@@ -163,7 +160,8 @@
         }
 
         .date {
-          display: none; //hide modified date
+         // display: none; //hide modified date
+          float:right;
         }
       }
     }
@@ -185,6 +183,7 @@
 
 .editor-layout {
   border-left: 1px solid #000000;
+  background-color: @base-background-color;
 
   // note info (three vertical dots)
   .editor-header-layout {
@@ -420,8 +419,6 @@
       padding-left: 8px;
       padding-right: 8px;
       color: @code-inline-color;
-      font-size: @code-font-size;
-      font-family: @code-font;
       padding-top: 2px;
       padding-bottom: 2px;
     }
