@@ -10,8 +10,6 @@
 @code-inline-color: rgba(255, 254, 255, 1.00);
 @code-keyword: rgba(174, 237, 218, 1.0);
 @light-blue: rgba(74, 168, 251, 1.0);
-
-
 @code-link: rgba(107, 202, 251, 1.0);
 @code-define: rgba(209, 160, 105, 1.0);
 @code-variable: rgba(255, 205, 120, 1.0);
@@ -25,8 +23,6 @@
 @code-operator: rgba(23, 168, 219, 1.00);
 @code-font: Menlo-Regular;
 @code-font-size: 12px;
-
-
 @note-list-font: AvenirNext-Medium;
 @note-list-font-size: 14px;
 @note-font: "Helvetica Neue";
@@ -260,8 +256,18 @@
     color: @code-keyword !important;
   }
 
-  .cm-string, .cm-quote {
+  .cm-string {
     color: @code-string !important;
+  }
+
+  .cm-quote {
+    color: inherit;
+  }
+
+  blockquote {
+    border-left: 2px solid @light-blue !important;
+    color: inherit !important;
+    padding-left: 15px;
   }
 
   .cm-variable {
@@ -588,8 +594,23 @@
       color: @code-keyword;
     }
 
-    .cm-string, .cm-quote {
+    .cm-string {
       color: @code-string;
+    }
+
+    .cm-quote {
+      color: inherit;
+      font-style: normal;
+    }
+
+    .quote.CodeMirror-line {
+      border-left: 2px solid @light-blue;
+      padding-left: 15px;
+
+      [role=presentation] {
+        .cm-quote {
+        }
+      }
     }
 
     .cm-variable {
