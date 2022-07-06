@@ -66,12 +66,19 @@
 
 .sidebar-layout {
   border-right: 1px solid #000000;
+  background-color: @dark-background-color;
+}
+
+.sidebar-workspace-title {
+  .content {
+    color: rgba(163, 164, 164, 1.0);
+  }
 }
 
 //notebooks sidebar
-.sidebar-menu {
-  background-color: @dark-background-color;
-}
+// .sidebar-menu {
+//   background-color: @dark-background-color;
+// }
 
 .sidebar-menu-item {
   color: rgba(163, 164, 164, 1.0);
@@ -142,6 +149,7 @@
       .header {
         // margin: 12px 12px 12px 0;
         font-weight: 400;
+        margin: 8px 12px 8px 0px;
         font-size: 1.10em;
         color: @title-text-color-app;
       }
@@ -192,6 +200,37 @@
 .editor-header-title-input.ui.input .editor-header-top-spacer, .editor-header-title-input.ui.input input[type='text'], .editor-meta-layout {
   background-color: @base-background-color;
 }
+
+button.mde-toolbar-item {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.mde-search-bar {
+  background-color: @code-background;
+  width: 95%;
+
+  .search-fields {
+    .search-text-boxes {
+      input {
+        background-color: @dark-background-color;
+      }
+    }
+  }
+}
+
+.editor-layout {
+  background-color: @base-background-color;
+}
+
+.editor-floating-actions {
+  right: 10px;
+
+  .background {
+    background-color: @base-background-color;
+  }
+}
+
 
 //toolbar for adding bold, italics, etc
 .mde-toolbar {
@@ -512,7 +551,7 @@
 
 
     .cm-inline-code {
-      background-color: @code-background;
+      // background-color: @code-background;
       border: 1px solid @code-border;
       padding-left: 8px;
       padding-right: 8px;
@@ -633,4 +672,5 @@
       color: @code-operator;
     }
   }
+
 }
